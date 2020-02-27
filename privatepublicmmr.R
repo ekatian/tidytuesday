@@ -18,7 +18,7 @@ library (dplyr)
 
 
 # Download the data
-measles <- readr::read_csv('C:/Users/ETian/Documents/Kedro Projects/TidyTuesday/data/measles.csv')
+measles <- readr::read_csv('C:/Users/ETian/Documents/tidytuesday/data/measles.csv')
 
 measles_df3 <- measles %>%
   filter(mmr >0) %>% #removed schools with no reported value (-1)
@@ -32,3 +32,5 @@ measles_df3 <- measles %>%
 glimpse(measles_df3)
 ggplot(measles_df3,aes(x = type, y = avg_mmr, colour = state, fill = state, label=state))+
   geom_bar(position = "dodge", stat="identity" ) 
+
+ggsave('C:/Users/ETian/Documents/tidytuesday/data/mmr.png', width = 18, height = 10)
